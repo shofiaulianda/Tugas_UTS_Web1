@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Riwayat Transaksi - BukuKita</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="riwayat">
+
+  <header class="site-header">
+    <h1>📚 Buku<span>Kita</span></h1>
+    <nav class="main-nav" aria-label="Navigasi utama">
+      <a href="dashboard.html">Dashboard</a>
+      <a href="stok.html">Stok</a>
+      <a href="checkout.html">Pemesanan</a>
+      <a href="tracking.html">Tracking</a>
+      <a href="riwayat.html" class="active">Riwayat</a>
+      <a href="#" id="btnLogout">Logout (<span id="namaUser"></span>)</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="card">
+      <h2 class="judul">History Transaksi</h2>
+      <p>Jumlah transaksi: <strong id="jmlTransaksi">0</strong> &nbsp;|&nbsp; Total belanja: <strong id="totalBelanja">Rp 0</strong></p>
+      <div class="table-wrap" style="margin-top:14px">
+        <table>
+          <thead><tr><th>ID</th><th>Tanggal</th><th>Item</th><th>Total</th><th>Status</th></tr></thead>
+          <tbody id="tbodyRiwayat"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer>&copy; 2026 BukuKita - Tugas UTS Pemrograman Web 1</footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>

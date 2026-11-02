@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stok Buku - BukuKita</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="stok">
+
+  <header class="site-header">
+    <h1>📚 Buku<span>Kita</span></h1>
+    <nav class="main-nav" aria-label="Navigasi utama">
+      <a href="dashboard.html">Dashboard</a>
+      <a href="stok.html" class="active">Stok</a>
+      <a href="checkout.html">Pemesanan</a>
+      <a href="tracking.html">Tracking</a>
+      <a href="riwayat.html">Riwayat</a>
+      <a href="#" id="btnLogout">Logout (<span id="namaUser"></span>)</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="card">
+      <h2 class="judul">Informasi Stok / Katalog Buku</h2>
+      <div class="toolbar">
+        <input type="search" id="cari" placeholder="Cari kode / nama / jenis...">
+        <button class="btn btn-accent" id="btnTambah">+ Tambah Stok Baru</button>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Cover</th><th>Kode</th><th>Nama Buku</th><th>Jenis</th>
+              <th>Edisi</th><th>Stok</th><th>Harga</th><th>Status</th><th>Aksi</th>
+            </tr>
+          </thead>
+          <tbody id="tbodyStok"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <!-- Modal Tambah Stok -->
+  <div class="modal-overlay" id="modalTambah">
+    <div class="modal" role="dialog" aria-labelledby="judulTambah">
+      <button class="close" aria-label="Tutup">&times;</button>
+      <h3 id="judulTambah">Tambah Stok Baru</h3>
+      <form id="formTambah" novalidate>
+        <div class="form-group">
+          <label for="kode">Kode Barang</label>
+          <input type="text" id="kode" placeholder="contoh: BK006">
+          <div class="error-msg"></div>
+        </div>
+        <div class="form-group">
+          <label for="nama">Nama Barang</label>
+          <input type="text" id="nama">
+          <div class="error-msg"></div>
+        </div>
+        <div class="grid-2">
+          <div class="form-group">
+            <label for="jenis">Jenis</label>
+            <select id="jenis">
+              <option value="">-- Pilih --</option>
+              <option>Teknologi</option>
+              <option>Desain</option>
+              <option>Sains</option>
+              <option>Novel</option>
+              <option>Lainnya</option>
+            </select>
+            <div class="error-msg"></div>
+          </div>
+          <div class="form-group">
+            <label for="edisi">Edisi</label>
+            <input type="text" id="edisi" placeholder="1">
+            <div class="error-msg"></div>
+          </div>
+        </div>
+        <div class="grid-2">
+          <div class="form-group">
+            <label for="stok">Stok</label>
+            <input type="number" id="stok" min="0">
+            <div class="error-msg"></div>
+          </div>
+          <div class="form-group">
+            <label for="harga">Harga (Rp)</label>
+            <input type="number" id="harga" min="0">
+            <div class="error-msg"></div>
+          </div>
+        </div>
+        <button type="submit" class="btn">Simpan</button>
+      </form>
+    </div>
+  </div>
+
+  <footer>&copy; 2026 BukuKita - Tugas UTS Pemrograman Web 1</footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>

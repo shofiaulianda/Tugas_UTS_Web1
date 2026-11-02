@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tracking Pengiriman - BukuKita</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="tracking">
+
+  <header class="site-header">
+    <h1>📚 Buku<span>Kita</span></h1>
+    <nav class="main-nav" aria-label="Navigasi utama">
+      <a href="dashboard.html">Dashboard</a>
+      <a href="stok.html">Stok</a>
+      <a href="checkout.html">Pemesanan</a>
+      <a href="tracking.html" class="active">Tracking</a>
+      <a href="riwayat.html">Riwayat</a>
+      <a href="#" id="btnLogout">Logout (<span id="namaUser"></span>)</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="card">
+      <h2 class="judul">Tracking Pengiriman</h2>
+      <form id="formCari" class="search-box" novalidate>
+        <div class="form-group" style="flex:1;margin:0">
+          <label for="noDO">Nomor Delivery Order</label>
+          <input type="text" id="noDO" placeholder="contoh: 2026001">
+          <div class="error-msg"></div>
+        </div>
+        <button type="submit" class="btn" style="align-self:flex-start;margin-top:26px">Cari</button>
+      </form>
+      <p style="margin-top:10px;font-size:.82rem;color:var(--muted)">Nomor DO contoh: 2026001, 2026002, 2026003</p>
+    </section>
+
+    <section class="card" id="hasil" hidden>
+      <h2 class="judul">Hasil Pelacakan</h2>
+      <p>Nama Pemesan: <strong id="rNama"></strong> &nbsp;|&nbsp; No. DO: <strong id="rDO"></strong></p>
+      <p>Status saat ini: <strong id="rStatus"></strong></p>
+
+      <div class="progress" id="progress">
+        <div class="bar-fill" id="barFill"></div>
+        <div class="step"><div class="dot">1</div>Dikemas</div>
+        <div class="step"><div class="dot">2</div>Dikirim</div>
+        <div class="step"><div class="dot">3</div>Transit</div>
+        <div class="step"><div class="dot">4</div>Sampai</div>
+      </div>
+
+      <div class="detail-grid">
+        <div class="detail-item"><small>Ekspedisi</small><strong id="rEkspedisi"></strong></div>
+        <div class="detail-item"><small>Tanggal Kirim</small><strong id="rTanggal"></strong></div>
+        <div class="detail-item"><small>Jenis Paket</small><strong id="rJenis"></strong></div>
+        <div class="detail-item"><small>Total Pembayaran</small><strong id="rTotal"></strong></div>
+      </div>
+
+      <h3 style="margin-top:22px;color:var(--primary)">Riwayat Perjalanan</h3>
+      <ul class="timeline" id="timeline"></ul>
+    </section>
+  </main>
+
+  <footer>&copy; 2026 BukuKita - Tugas UTS Pemrograman Web 1</footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>

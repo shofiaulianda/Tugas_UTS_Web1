@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pemesanan - BukuKita</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="checkout">
+
+  <header class="site-header">
+    <h1>📚 Buku<span>Kita</span></h1>
+    <nav class="main-nav" aria-label="Navigasi utama">
+      <a href="dashboard.html">Dashboard</a>
+      <a href="stok.html">Stok</a>
+      <a href="checkout.html" class="active">Pemesanan</a>
+      <a href="tracking.html">Tracking</a>
+      <a href="riwayat.html">Riwayat</a>
+      <a href="#" id="btnLogout">Logout (<span id="namaUser"></span>)</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="card">
+      <h2 class="judul">1. Pilih Buku</h2>
+      <div class="grid-2">
+        <div class="form-group">
+          <label for="pilihBuku">Buku</label>
+          <select id="pilihBuku"><option value="">-- Pilih buku --</option></select>
+          <div class="error-msg"></div>
+        </div>
+        <div class="form-group">
+          <label for="qtyBuku">Jumlah</label>
+          <input type="number" id="qtyBuku" min="1" value="1">
+          <div class="error-msg"></div>
+        </div>
+      </div>
+      <button type="button" class="btn btn-accent" id="btnTambahItem">+ Tambah ke Keranjang</button>
+    </section>
+
+    <section class="card">
+      <h2 class="judul">2. Keranjang Pesanan</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Buku</th><th>Harga</th><th>Jumlah</th><th>Subtotal</th><th>Aksi</th></tr></thead>
+          <tbody id="tbodyKeranjang"></tbody>
+        </table>
+      </div>
+      <p class="total-row">Total: <span id="totalBayar">Rp 0</span></p>
+    </section>
+
+    <section class="card">
+      <h2 class="judul">3. Data Pemesan &amp; Pembayaran</h2>
+      <form id="formPesan" novalidate>
+        <div class="grid-2">
+          <div class="form-group">
+            <label for="pNama">Nama Pemesan</label>
+            <input type="text" id="pNama">
+            <div class="error-msg"></div>
+          </div>
+          <div class="form-group">
+            <label for="pEmail">Email</label>
+            <input type="email" id="pEmail">
+            <div class="error-msg"></div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="pTelp">No. HP</label>
+          <input type="tel" id="pTelp" placeholder="081234567890">
+          <div class="error-msg"></div>
+        </div>
+        <div class="form-group">
+          <label for="pAlamat">Alamat Pengiriman</label>
+          <textarea id="pAlamat" rows="3"></textarea>
+          <div class="error-msg"></div>
+        </div>
+        <div class="grid-2">
+          <div class="form-group">
+            <label for="pEkspedisi">Ekspedisi</label>
+            <select id="pEkspedisi">
+              <option value="">-- Pilih --</option>
+              <option>JNE</option><option>J&amp;T Express</option><option>SiCepat</option><option>POS Indonesia</option>
+            </select>
+            <div class="error-msg"></div>
+          </div>
+          <div class="form-group">
+            <label for="pBayar">Metode Pembayaran</label>
+            <select id="pBayar">
+              <option value="">-- Pilih --</option>
+              <option>Transfer Bank</option><option>E-Wallet</option><option>COD (Bayar di Tempat)</option>
+            </select>
+            <div class="error-msg"></div>
+          </div>
+        </div>
+        <button type="submit" class="btn">Buat Pesanan</button>
+      </form>
+    </section>
+  </main>
+
+  <!-- Modal sukses -->
+  <div class="modal-overlay" id="modalSukses">
+    <div class="modal" role="dialog" aria-labelledby="judulSukses" style="text-align:center">
+      <button class="close" aria-label="Tutup">&times;</button>
+      <div style="font-size:3rem">✅</div>
+      <h3 id="judulSukses">Pesanan Berhasil!</h3>
+      <p>Nomor Delivery Order Anda:</p>
+      <p style="font-size:1.6rem;font-weight:700;color:var(--primary)" id="hasilDO"></p>
+      <p>Total: <strong id="hasilTotal"></strong></p>
+      <p style="margin:10px 0;font-size:.85rem;color:var(--muted)">Gunakan nomor ini di halaman Tracking.</p>
+      <a href="tracking.html" class="btn">Lacak Pesanan</a>
+    </div>
+  </div>
+
+  <footer>&copy; 2026 BukuKita - Tugas UTS Pemrograman Web 1</footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
